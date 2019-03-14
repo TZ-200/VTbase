@@ -1,0 +1,19 @@
+.detailNotFound{
+    position: absolute;
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    &__text{
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    &__subText{
+        font-size: 2em;
+        margin-top: 1rem;
+    }
+}

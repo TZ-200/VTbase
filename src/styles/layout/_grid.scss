@@ -1,0 +1,38 @@
+.row {
+
+    background-color: #eee;
+    margin: 0 auto;
+    margin-top: 5rem;
+
+    &:not(:last-child){  // 最後の子要素を除いて
+        // margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    [class^="col-"]{
+        background-color: orangered;
+        float: left;
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) /2 );
+        float: left;
+        background-color: blue;
+
+    }
+    .col-1-of-3{
+        width: calc((100% - 2 * #{$gutter-horizontal}) /3 );        
+        float: left;
+        background-color: blue;
+    max-width: 25rem;
+
+
+    }
+
+}
+

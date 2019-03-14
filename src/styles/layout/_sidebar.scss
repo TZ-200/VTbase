@@ -1,0 +1,34 @@
+.sidebar{
+    
+    display: none;
+    background-color: rgb(65, 59, 59);
+    padding-top: 1rem;
+    position: fixed;
+    height: 100%;
+
+    &__navigation{
+        display: flex;
+        flex-flow: column;
+
+        &--item{
+            padding: 1rem 0;
+            padding-left: 1rem;
+            margin-right: 0.5rem;
+            text-decoration:none; 
+            cursor:pointer;  
+            color:rgb(255, 255, 255); 
+        }
+
+        &--active{
+            font-weight: 500;
+            color: rgb(255, 255, 255);
+            background-color: rgb(107, 145, 167);
+        }
+    }
+}
+
+.isOpened{
+    display: inline-flex;
+    flex-flow: column;
+    width: $sidebar-width;
+}

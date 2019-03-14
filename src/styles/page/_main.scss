@@ -1,0 +1,20 @@
+.contents__wrapper{
+    display: flex;
+    height: calc(100vh - 5rem);
+    padding-top: $header-height;
+}
+
+.contents__container{
+    position: absolute;
+    margin: 0 auto;
+    height: 90%;
+    left: 0;
+    width: 100%;
+
+}
+
+.isShrunk{
+    left: $sidebar-width;
+    width: calc(100% - 20rem);
+    
+}

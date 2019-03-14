@@ -1,0 +1,107 @@
+.vtuberList{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.vtuberCard{
+ 
+    display: inline-block;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;   
+    margin: 1rem;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,.2);
+    position: relative;
+    animation-name: fadeIn;
+    animation-duration: .5s;
+    transition: .1s;
+
+    &__color-1{background-image: $card-1}
+    &__color-2{background-image: $card-2}
+    &__color-3{background-image: $card-3}
+
+    &:hover{
+        transform: scale(1.05);
+        transition: .2s;
+    }
+
+    &:active,
+    &:focus{
+        transform: scale(1.0);
+
+    }
+
+    &__budge{
+        position: absolute;
+        height: 5rem;
+        width: 5rem;
+        z-index: 3;
+        background-size: cover;
+        border-radius: 100%;
+    }
+
+    &__image{
+        // border-radius: 1rem;
+        position: relative;
+        height: 22rem;
+        width: 22rem;
+        margin: 2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    &__channelTitle{
+        height: 2rem;
+        background-color: rgb(99, 99, 99);
+        color: white;
+        padding: 0.5rem;
+        font-weight: 600;
+        width: 20rem;
+        position: absolute;
+        top: 25rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__param{
+
+        font-size: 2.5rem;
+        color: black;
+
+        &--container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    
+        &--subContainer{
+            display: flex;
+            flex-flow: column;
+            margin: .5rem;
+        }
+
+        &--label{
+            font-size: 1.6rem;
+            color: rgb(155, 155, 155);
+        }
+    
+    }
+
+
+
+    &__subs,
+    &__videoCount{
+        width: 22rem;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 1rem 1rem;
+
+        & span{
+            color: black;
+
+
+        }
+    }
+}
