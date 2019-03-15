@@ -30,10 +30,12 @@ const DATA = [
 export default class GainLossChart extends React.Component {
 
   render() {
-    //   console.log(myDATA);
-    //   myDATA.push({x: 0, y0: 0, y: 3});
       
     return (
+        <div className="graph__container">
+            <div className="graph__label">
+                Gained & Lost Followeres
+            </div>
             <FlexibleXYPlot
                 
                 xDomain={[timestamp , timestamp + 12 * ONE_DAY]}
@@ -61,6 +63,7 @@ export default class GainLossChart extends React.Component {
                 />
                 <YAxis />
             </FlexibleXYPlot>
+        </div>
     );
   }
 }

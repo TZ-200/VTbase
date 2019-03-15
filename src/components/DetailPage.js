@@ -15,11 +15,15 @@ import DetailNotFound from './DetailNotFound';
 import AreaChart from './AreaChart';
 import '../../node_modules/react-vis/dist/style.css';
 import Graph from './Graph';
+import { NavLink } from 'react-router-dom';
+import Detail from './Detail';
 
 export class DetailPage extends React.Component{
 
   state = {
-    videoId : ""
+    videoId : '',
+    basicInfo: 'isSelected',
+    timeline: ''
   }
 
   componentDidMount(){
@@ -34,6 +38,9 @@ export class DetailPage extends React.Component{
     this.setState({videoId})
   }
 
+  dispBasicInfo = () => {this.setState({basicInfo: 'isSelected', timeline: ''})}
+  dispTimeline = () => {this.setState({basicInfo: '', timeline: 'isSelected'})}
+
   render(){
 
     const targetVtuberDetail = this.props.vtuberDetail;
@@ -47,24 +54,35 @@ export class DetailPage extends React.Component{
       <div>
       {
         targetVtuberDetail ? (
+
           <div className="detail" >
-            <DetailHeader targetVtuber={targetVtuber}/>
-            <DetailNavigation />
-            <DetailParams paramSet={paramSet.slice(0,3)} />
-            <DetailParams paramSet={paramSet.slice(3,6)} />
-            <GrapgContainer>
-                <Graph ratio={'ratio_1-1'} Graph={AreaChart}/>
-                <Graph ratio={'ratio_1-1'} Graph={VtuberDetailRadar} data={{vtubers:this.props.vtubers, targetVtuber,targetVtuber}}/>
-            </GrapgContainer>
-            <GrapgContainer>
-                <Graph ratio={'ratio_4-3'} Graph={GainLossChart}/>
-                <Graph ratio={'ratio_4-3'} Graph={EmbedVideo} data={{videoId:this.state.videoId}} iframe={true}/>
-            </GrapgContainer>
-            <VideoHeatmap 
-              targetVtuberDetail={targetVtuberDetail} 
-              onClick={this.changeVideoId}
-              hasVideo={!!this.state.videoId}  
+            <DetailHeader 
+                channelId={targetVtuber.channelId}
+                title={targetVtuber.title} 
+                description={targetVtuberDetail.channelDescription}
             />
+            <DetailNavigation 
+                toggleBasic={this.dispBasicInfo}
+                toggleTimeline={this.dispTimeline}
+                basicInfo={this.state.basicInfo}
+                timeline={this.state.timeline}
+            />
+            <div className="detail__wrapper"></div>
+
+            {
+              this.state.basicInfo && (
+                  <Detail 
+                    vtubers={this.props.vtubers}
+                    paramSet={paramSet}
+                    targetVtuberDetail={targetVtuberDetail} 
+                    targetVtuber={targetVtuber}
+                    videoId={this.state.videoId}
+                    onClick={this.changeVideoId}
+                  />
+              )
+            }
+            
+
           </div>
         ) : (
           <DetailNotFound/>

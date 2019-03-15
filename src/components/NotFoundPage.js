@@ -26,7 +26,12 @@ export class NotFoundPage extends React.Component{
           <div className="notFound__text">
               404 - PAGE NOT FOUND
           </div>
-        <button className="notFound__button" onClick={this.onClick}>Back</button>
+          <button 
+              className="notFound__button" 
+              onClick={this.onClick}
+          > 
+              Back
+          </button>
       </div>
 
   

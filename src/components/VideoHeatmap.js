@@ -66,7 +66,7 @@ export default class VideoHeatmap extends Component {
                                     return(
                                         <div>
                                         <h3>{title}</h3>
-                                        <p>{date}</p>
+                                        <p>動画投稿日: {date}</p>
                                         <p>動画再生数: {viewCount}</p>
                                         </div>           
                                     )

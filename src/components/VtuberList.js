@@ -17,7 +17,7 @@ export class VtuberList extends React.Component {
         this.props.vtubers.length === 0 ? (
           <p>No vtubers</p>
         ) : (
-            this.props.vtubers.map((vtuber) => {
+            this.props.vtubers.slice(0,100).map((vtuber) => {
               return <VtuberCard key={vtuber.channelId} vtuber={vtuber} />;
             })
           )

@@ -11,10 +11,11 @@ import {
     VerticalBarSeries,
     LineSeries
 } from 'react-vis';
+import rn from 'random-number';
 
 const timestamp = new Date('February 22 2019').getTime();
 const ONE_DAY = 86400000;
-
+const gen = rn.generator({min:800, max:1200, integer: true});
 
 
 export default class AreaChart extends React.Component {
@@ -24,21 +25,26 @@ export default class AreaChart extends React.Component {
         for(let i = 0; i <= 9; i++){
             DATA.push({
                 x: ONE_DAY * i + timestamp,
-                y: Math.random() * 10 + 50
+                y: gen()
             })
         }
-          return (
+          return (  
+              <div className="graph__container">
+                    <div className="graph__label">
+                        Channel Growth
+                    </div>
                     <FlexibleXYPlot 
-                        xDomain={[timestamp - ONE_DAY , timestamp + 10 * ONE_DAY]}
-                        yDomain={[40,65]}    
+                        xDomain={[timestamp - ONE_DAY /2, timestamp + 9.5 * ONE_DAY]}
+                        yDomain={[0,1700]}    
                         xType="time"
+                        margin={{bottom:60}}
                     >
                     <GradientDefs>
-                    <linearGradient id="CoolGradient" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="20%" stopColor="blue" stopOpacity={0.1}/>
-                      <stop offset="100%" stopColor="blue" stopOpacity={0} />
-                    </linearGradient>
-                  </GradientDefs>
+                        <linearGradient id="CoolGradient" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="20%" stopColor="blue" stopOpacity={0.1}/>
+                        <stop offset="100%" stopColor="blue" stopOpacity={0} />
+                        </linearGradient>
+                    </GradientDefs>
                     <AreaSeries 
                         data={DATA}  
                         curve={'curveMonotoneX'}
@@ -46,13 +52,13 @@ export default class AreaChart extends React.Component {
                     />
                     <LineSeries
                         data={DATA}
-                        color="red"  
+                        color="blue"  
                         curve={'curveMonotoneX'}
-                        lineStyle={{stroke:"red"}}
-                        opacity={0.5}
+                        lineStyle={{stroke:"blue"}}
+                        opacity={0.2}
                     />
                     <XAxis 
-                        style={{stroke: 'black'}}
+                        tickSize={0}
                         tickValues={[
                             timestamp + 1 * ONE_DAY,
                             timestamp + 3 * ONE_DAY,
@@ -60,9 +66,33 @@ export default class AreaChart extends React.Component {
                             timestamp + 7 * ONE_DAY,
                             timestamp + 9 * ONE_DAY
                         ]}
+                        style={{
+                            text: {
+                                fontSize:'1.5rem'
+                            }
+                        }}
                     />
-                    <YAxis />
+                    <YAxis 
+                        tickSize={0}             
+                        tickPadding={4}           
+                        style={{
+                            line: {
+                                stroke: 'none'
+                            },
+                            text: {
+                                fontSize:'1.5rem'
+                            }
+                        }}
+                    />
+                    <HorizontalGridLines
+                        style={{
+                            strokeDasharray: '2,2',
+                            strokeWidth: '2px'
+                        }}
+                    />
                     </FlexibleXYPlot>
+              </div>
+
             )
     }
 

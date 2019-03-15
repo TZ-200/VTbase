@@ -63,7 +63,7 @@ const VtuberCard = (props) => {
             
             
             <div className="vtuberCard__channelTitle">
-              {props.vtuber.title.slice(0,15)}
+              {props.vtuber.title.slice(0,12)}
             </div>
           
             <div className="vtuberCard__param--container">

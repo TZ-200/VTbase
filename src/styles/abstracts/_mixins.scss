@@ -12,3 +12,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@mixin svg {
+    color: #ACB6E5;//非対応のブラウザでの文字色を設定
+    -webkit-background-clip: text;//テキストでくり抜く
+    -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
+}
