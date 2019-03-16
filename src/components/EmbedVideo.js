@@ -5,8 +5,9 @@ export class Video extends Component{
     render(){
         if(this.props.videoId){
             return(
-                <div className="graph__container">
-                    <div className="graph__label">
+
+                <div className="video__wrapper">
+                    <div className="container__label">
                         Featured Video
                     </div>
                     <div className="video__container">
@@ -19,7 +20,6 @@ export class Video extends Component{
                             className="video"
                         />
                     </div>
-
                 </div>
                 
             )

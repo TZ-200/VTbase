@@ -1,5 +1,6 @@
 import React from 'react';
-// import '../temp/svg/sub.svg';
+import calcParamText from '../utils/calcParamText';
+
 
 export default (props) => (
     <div className="detail__flex--small-item">
@@ -12,6 +13,7 @@ export default (props) => (
         <div className="detail__param">
             {props.params.param}
         </div>
+        {calcParamText(props.params.label)}
         <div className="detail__param--change">
             + 12.2%
         </div>

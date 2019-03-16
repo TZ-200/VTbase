@@ -25,6 +25,12 @@ export default class VideoHeatmap extends Component {
         }
     }
     
+    componentDidUpdate(){
+        document.querySelectorAll('.react-calendar-heatmap rect')
+        .forEach(rect => {rect.setAttribute('rx','2'); rect.setAttribute('ry','2');});
+        document.querySelectorAll('.react-calendar-heatmap text')
+        .forEach(text => text.setAttribute('style',"font-size:0.8rem; font-family:Trebuchet"));
+    }
 
     render () {
         const values = this.props.targetVtuberDetail.heatmap.map(detail => {
@@ -39,6 +45,9 @@ export default class VideoHeatmap extends Component {
         const startDate = new Date('2018-09-15');
       return (
         <div className="detail__heatmap--container">
+            <div className="container__label">
+                Video Views
+            </div>
             {
                 this.props.hasVideo ? (
                     <div className="detail__heatmap">
@@ -56,6 +65,11 @@ export default class VideoHeatmap extends Component {
                             showWeekdayLabels={true}
                             onClick={value => {
                                 if(value) this.props.onClick(value.videoId)
+                            }}
+                            style={{
+                                text:{
+                                    fontSize: '2rem'
+                                }
                             }}
                         />
                         <ReactTooltip 

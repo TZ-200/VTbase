@@ -32,11 +32,11 @@ export default (vtubers, targetVtuber) => {
     const arrLength = subsArr.length;
 
     return [
-        (targetSubsIndex + 1) * 5 / arrLength,
-        (targetVideoCountIndex + 1) * 5 / arrLength,
-        (targetCreatedAtIndex + 1) * 5 / arrLength,
-        (targetFollowCountIndex + 1) * 5 / arrLength,
-        (targetFollowerCountIndex + 1) * 5 / arrLength,
-        (targetTweetCountIndex + 1) * 5 / arrLength
+        [(targetSubsIndex + 1) * 5 / arrLength, arrLength - targetSubsIndex],
+        [(targetVideoCountIndex + 1) * 5 / arrLength, arrLength - targetVideoCountIndex],
+        [(targetCreatedAtIndex + 1) * 5 / arrLength, arrLength - targetCreatedAtIndex],
+        [(targetFollowCountIndex + 1) * 5 / arrLength, arrLength - targetFollowCountIndex],
+        [(targetFollowerCountIndex + 1) * 5 / arrLength, arrLength - targetFollowerCountIndex],
+        [(targetTweetCountIndex + 1) * 5 / arrLength, arrLength - targetTweetCountIndex]
     ];
 }
