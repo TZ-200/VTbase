@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
 import numeral from 'numeral';
 import rn from 'random-number';
 
@@ -32,8 +31,8 @@ const getBudges = (num) => {
 
 const VtuberCard = (props) => {
     return (
+      <Link to={`/database/${props.vtuber.channelId}`} style={{ textDecoration: 'none' }}>
       
-      <LazyLoad key={props.vtuber.channelId} overflow height={10} offest={1000} >
         <div className={`vtuberCard vtuberCard__color-${getColor(gen())}`}>
 
         {
@@ -53,7 +52,6 @@ const VtuberCard = (props) => {
         }
 
 
-          <Link to={`/database/${props.vtuber.channelId}`} style={{ textDecoration: 'none' }}>
 
             <img 
               className="vtuberCard__image"
@@ -86,9 +84,9 @@ const VtuberCard = (props) => {
             </div>
             
 
-            </Link>
         </div>
-      </LazyLoad>
+        </Link>
+
     );
   }
   

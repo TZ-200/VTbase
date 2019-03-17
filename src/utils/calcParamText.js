@@ -5,14 +5,14 @@ const genP = rn.generator({min:0.1, max:2});
 const genIS = rn.generator({min:1, max:14, integer:true});
 const genIL = rn.generator({min:10, max:3000, integer:true});
 
-const moreGrowth = 'more growth than usual';
-const lessGrowth = 'less growth than usual';
-const moreFollow = 'more following than usual';
-const lessFollow = 'less following than usual';
+const moreGrowth = 'more than usual';
+const lessGrowth = 'less than usual';
+const moreFollow = 'more than usual';
+const lessFollow = 'less than usual';
 const upload = ' ago, new upload';
-const active = ' active';
-const moreTweets = 'more tweets than usual';
-const lessTweets = 'less tweets than usual';
+const active = ' keep active';
+const moreTweets = 'more than usual';
+const lessTweets = 'less than usual';
 
 export default (label) => {
     const percent = genP();
@@ -25,10 +25,10 @@ export default (label) => {
         change = '+ ' + percent.toFixed(2) + '%';
         if(percent < 1.0){
             colorClassName += ' red';
-            text = moreGrowth;
+            text = lessGrowth;
         } else {
             colorClassName += ' blue';
-            text = lessGrowth;
+            text = moreGrowth;
         }
     }
 
@@ -36,20 +36,16 @@ export default (label) => {
         text = upload;
         change = IntegerS.toString() + ' days';
         if(IntegerS <= 7){
-            colorClassName += ' red';
-        } else {
             colorClassName += ' blue';
+        } else {
+            colorClassName += ' red';
         }
     }
 
     if(label === 'Channel Created At') {
         text = active;
         change = IntegerL.toString() + ' days';
-        if(IntegerL < 365){
-            colorClassName += ' red';
-        } else {
-            colorClassName += ' blue';
-        }
+        colorClassName += ' blue';
     }
 
     if(label === 'Total Tweets') {
@@ -67,10 +63,10 @@ export default (label) => {
         change = '+ ' + percent.toFixed(2) + '%';
         if(percent < 1){
             colorClassName += ' red';
-            text = moreFollow
+            text = lessFollow
         } else {
             colorClassName += ' blue';
-            text = lessFollow
+            text = moreFollow
         }
     }
 
@@ -78,16 +74,12 @@ export default (label) => {
         change = '+ ' + percent.toFixed(2) + '%';
         if(percent < 1){
             colorClassName += ' red';
-            text = moreGrowth;
+            text = lessGrowth;
         } else {
             colorClassName += ' blue';
-            text = lessGrowth;
+            text = moreGrowth;
         }
-    }
-
-    console.log(change);
-    console.log(text);
-    
+    }   
 
     return (
         <div className="detail__param--change--container">

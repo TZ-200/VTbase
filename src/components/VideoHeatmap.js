@@ -25,12 +25,7 @@ export default class VideoHeatmap extends Component {
         }
     }
     
-    componentDidUpdate(){
-        document.querySelectorAll('.react-calendar-heatmap rect')
-        .forEach(rect => {rect.setAttribute('rx','2'); rect.setAttribute('ry','2');});
-        document.querySelectorAll('.react-calendar-heatmap text')
-        .forEach(text => text.setAttribute('style',"font-size:0.8rem; font-family:Trebuchet"));
-    }
+
 
     render () {
         const values = this.props.targetVtuberDetail.heatmap.map(detail => {

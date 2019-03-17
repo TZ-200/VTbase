@@ -2,29 +2,40 @@ import React from 'react';
 import { connect } from 'react-redux';
 import selectDetail from '../selectors/selectDetail';
 import DetailHeader from './DetailHeader';
-import VtuberDetailRadar from './VtuberDetailRadar';
-import VideoHeatmap from './VideoHeatmap';
-import EmbedVideo from './EmbedVideo';
-import moment from 'moment';
 import DetailNavigation from './DetailNavigation';
-import DetailParams from './DetailParams';
 import extractParams from '../utils/extractParams';
-import GrapgContainer from './GraphContainer';
-import GainLossChart from './GainLossChart';
 import DetailNotFound from './DetailNotFound';
-import AreaChart from './AreaChart';
 import '../../node_modules/react-vis/dist/style.css';
-import Graph from './Graph';
-import { NavLink } from 'react-router-dom';
 import Detail from './Detail';
+import rn from 'random-number';
+import Timeline from './Timeline'
+
+const gen = rn.generator({min:0, max:5, integer: true});
+const comments = [
+  '応援よろしくお願いします！！',
+  'ユーザーが登録できるコメントかなにかです',
+  'アイコンをクリックするとコメントが出たり消えたり',
+  'このVtuberの名言とか一言とか登録したり',
+  '自己紹介とかユーザーへのフックみたいなもの',
+  'クリックするたびに登録された一言メッセージがランダムで表示されます'
+]
+
 
 export class DetailPage extends React.Component{
 
   state = {
     videoId : '',
     basicInfo: 'isSelected',
-    timeline: ''
+    timeline: '',
+    commentIsVisible: false,
+    comment: ''
   }
+
+  dispComment = () => {
+    this.setState({comment: comments[gen()]})
+    this.setState({commentIsVisible:true})
+  }
+  hideComment = () => {this.setState({commentIsVisible:false})}
 
   componentDidMount(){
     if(this.props.vtuberDetail && this.props.vtuberDetail.heatmap[0]){
@@ -33,6 +44,14 @@ export class DetailPage extends React.Component{
       this.setState({videoId: undefined})
     }
   }
+
+  // Heatmap reshape a bit
+  componentDidUpdate(){
+    document.querySelectorAll('.react-calendar-heatmap rect')
+    .forEach(rect => {rect.setAttribute('rx','2'); rect.setAttribute('ry','2');});
+    document.querySelectorAll('.react-calendar-heatmap text')
+    .forEach(text => text.setAttribute('style',"font-size:0.8rem; font-family:Trebuchet"));
+}
 
   changeVideoId = (videoId) => {
     this.setState({videoId})
@@ -58,8 +77,13 @@ export class DetailPage extends React.Component{
           <div className="detail" >
             <DetailHeader 
                 channelId={targetVtuber.channelId}
+                twitterId={targetVtuberDetail.twitterId}
                 title={targetVtuber.title} 
                 description={targetVtuberDetail.channelDescription}
+                onClick={this.dispComment}
+                onMouseOut={this.hideComment}
+                commentIsVisible={this.state.commentIsVisible}
+                comment={this.state.comment}
             />
             <DetailNavigation 
                 toggleBasic={this.dispBasicInfo}
@@ -67,7 +91,7 @@ export class DetailPage extends React.Component{
                 basicInfo={this.state.basicInfo}
                 timeline={this.state.timeline}
             />
-            <div className="detail__wrapper"></div>
+            <div className="detail__navigation--border"></div>
 
             {
               this.state.basicInfo && (
@@ -80,6 +104,13 @@ export class DetailPage extends React.Component{
                     onClick={this.changeVideoId}
                   />
               )
+            }
+
+            {
+              this.state.timeline && (
+                <Timeline/>
+              )
+
             }
             
 

@@ -7,7 +7,7 @@ import GainLossChart from './GainLossChart';
 import AreaChart from './AreaChart';
 
 export default (props) => (
-    <div style={{textAlign:'center'}}>
+    <div className="detail__wrapper">
         <DetailParams 
             paramSet={props.paramSet} 
             icon={['fas fa-rss', 'fas fa-video', 'fas fa-birthday-cake','fab fa-twitter', 'fas fa-walking', 'fas fa-users']}

@@ -27,6 +27,12 @@
   &.fa-users{background-color: rgb(141, 213, 255);}
 }
 
+.red{
+  color: #ff3f3f;
+}
+.blue{
+  color: #4d4dff;
+}
 
 .detail{
     width: 90%;
@@ -38,22 +44,18 @@
     animation-duration: .3s;
     transition: .1s;
 
-
   &__wrapper{
-    left: 0;
-    position: absolute;
-    // background-color: rgb(224, 224, 224);
-    border-top: 1px solid rgb(235, 235, 235);
-    width: 100%;
-    height: 150rem;
-    z-index: -10;
+    animation-name: fadeSlideIn;
+    animation-duration: .3s;
+    transition: .1s;
+    text-align: center;
   }
 
     &__header{
         display: inline-flex;
         width: 100%;
         margin: 2rem 0;
-        // background-color: orange;
+        position: relative;
 
         &--top{
           display: flex;
@@ -83,6 +85,29 @@
 
         }
 
+        &--comment{
+          
+          position: absolute;
+          background-color: #3c3c3c;
+          padding: 1.5rem;
+          border-radius: 2rem;
+          color: white;
+          left: 22rem;
+          top: -4rem;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 86%;
+            left: -2.2rem;
+            margin-top: -1.5rem;
+            border: 15px solid transparent;
+            border-right: 2rem solid #3c3c3c;
+            z-index: 0;
+            transform: rotate(-25deg);
+          }
+        }
+
         &--sub-container{
             width: calc(100% - 25rem);
             margin-left: 5rem;
@@ -95,27 +120,22 @@
             font-size: 3rem;
             display: flex;
             align-items: center;
-            // background-color: orange;
         }
 
         &--icons{
             height: $xl-size;
             display: flex;
             align-items: center;
-            // background-color: black;
         }
 
         &--description{
-            // background-color: green;
             height: 13rem;
             overflow-y: scroll;
         }
     }
 
     &__navigation{
-        // background-color: pink;
         display: flex;
-        // border-bottom: 1px solid rgb(156, 156, 156);
 
         &--item{
             padding: 1rem 2rem;
@@ -124,10 +144,19 @@
             color: rgb(185, 185, 185);
             cursor: pointer;
         }
+
+        &--border{
+          left: 0;
+          position: absolute;
+          // background-color: rgb(224, 224, 224);
+          border-top: 1px solid rgb(235, 235, 235);
+          width: 100%;
+          height: 150rem;
+          z-index: -10;
+        }
     }
 
     &__param{
-
       font-size: 3.5rem;
       font-family: 'Titillium Web';
       padding: .5rem 0 .5rem 3rem;
@@ -144,13 +173,9 @@
         height: 3rem;
         width: 3rem;
         background-size: cover;
-        // -webkit-background-clip: text;
-        // background-clip: text;
-        // -webkit-text-fill-color: transparent;
       }
 
       &--label{
-        // background: red;
         color: grey;
         padding: 2rem;
         padding-left: 3rem;
@@ -161,6 +186,27 @@
         padding: 2rem;
         padding-left: 3rem;
         text-align: left;
+
+        &--container{
+          padding: 2rem 0;
+        }
+
+        &--quantity{
+          font-size: 1.6rem;
+          display: inline-block;
+          width: 30%;
+          font-weight: 700;
+          text-align: left;
+          padding-left: 2rem;
+        }
+        &--text{
+          font-size: 1.4rem;
+          color: grey;
+          display: inline-block;
+          width: 50%;
+          text-align: left;
+          padding-left: 1.5rem;
+        }
 
       }
     }
@@ -380,6 +426,9 @@
     color: rgb(61, 61, 61);
 }
 
+
+
+
   .icon {
       height: 4rem;
       width: 4rem;
@@ -390,7 +439,7 @@
   }
   
   .heart {
-      margin: 0;
+      margin: 0 1rem;
       display: flex;
       justify-content: center;
       font: 1em verdana, sans-serif;
@@ -539,3 +588,35 @@
     }
     
   }
+
+.timeline__button{
+  padding: .6rem;
+  border: 1px solid #bbbbbb;
+  display: inline-block;
+  margin-top: 1.3rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
+  &:hover{
+    background-color: #dfdfdf;
+  }
+
+  &:active,
+  &:focus{
+    background-color: #f1f1f1;
+  }
+
+}
+.vertical-timeline-element-date{
+  width: 100%;
+  font-size: 1.5rem !important;
+}
+.timeline__icon{
+  @include absCenter;
+  font-size: 2.5rem;
+}
