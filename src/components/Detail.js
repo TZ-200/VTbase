@@ -23,12 +23,15 @@ export default (props) => (
                 videoId={props.videoId}
                 iframe={true}
             />
+            {
+                props.videoId && (
+                    <VideoHeatmap 
+                        targetVtuberDetail={props.targetVtuberDetail} 
+                        onClick={props.onClick}
+                    />
+                )
+            }
 
-            <VideoHeatmap 
-                targetVtuberDetail={props.targetVtuberDetail} 
-                onClick={props.onClick}
-                hasVideo={!!props.videoId}  
-            />
         </div>
     </div>
 )

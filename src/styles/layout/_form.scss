@@ -1,0 +1,86 @@
+.form {
+    @include absCenter;
+    width: 40%;
+    height: 80%;
+    border: 2px solid #e4e4e4;
+    background-size: cover;
+    text-align: center;
+    background-position: center;
+
+    // w/o below, the container shakes after animation.
+    backface-visibility: hidden;
+
+
+    &__group{
+        margin: 3rem 0;
+        &.form__title{
+            width: 80%;
+            display: inline-block;
+            text-align: left;
+            margin: 5rem 0 3rem 0;
+            background-image: linear-gradient(to right, #98abff, #596aff);
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            letter-spacing: 1rem;
+        }
+        & .btn{
+            margin-top: 5rem;
+            font-size: 1.5rem;
+            background-color: #00b8ff61;
+        }
+    }
+
+    &__input{
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 1rem;
+        border-radius: 2px;
+        background-color: rgba(rgb(255, 255, 255), .9);
+        border: none;
+        border-bottom: 3px solid transparent;   // focus状態と合わせるため
+        width: 80%;
+        display: block;  
+        transition: all .3s;
+        margin: auto;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(black, .1);
+            border-bottom: 3px solid blue;
+        }
+
+        &:focus:invalid { // inputの入力がinvalidのとき
+            border-bottom: 3px solid grey;
+        }
+
+        // placeholderに適用
+        // safariとchromeしか動かないことに注意
+        &::-webkit-input-placeholder{  
+            color: grey;
+        }
+
+
+
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-top: .7rem;
+        display: inline-block;
+        transition: all .3s;
+        text-align: left;
+        width: 80%;
+    }
+
+    // inputに入力したらplaceholderはshownではなくなるので以下のCSSが外れる
+    &__input:placeholder-shown + &__label{  // sibiling selector
+        opacity: 0;
+        visibility: hidden;     // visibilityはアニメーションにできないのでopacityが必要
+        transform: translateY(-4rem);
+    }
+
+
+}

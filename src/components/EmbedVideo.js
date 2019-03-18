@@ -3,36 +3,35 @@ import React, {Component} from 'react';
 export class Video extends Component{
 
     render(){
-        if(this.props.videoId){
-            return(
 
-                <div className="video__wrapper">
-                    <div className="container__label">
-                        Featured Video
-                    </div>
-                    <div className="video__container">
-                        <iframe 
-                            key={this.props.videoId}
-                            src={`https://www.youtube.com/embed/${this.props.videoId}`} 
-                            frameBorder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen
-                            className="video"
-                        />
-                    </div>
+        return (
+            <div className="video__wrapper">
+                <div className="container__label">
+                    Featured Video
                 </div>
-                
-            )
-        } else {
-            return(
-                <div className="detail__noVideo">
-                    NO VIDEO!
+                <div className="video__container">
+                    {
+                        this.props.videoId ? (
+                            <iframe 
+                                key={this.props.videoId}
+                                src={`https://www.youtube.com/embed/${this.props.videoId}`} 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                allowFullScreen
+                                className="video"
+                            />
+                        ) : (
+                            <div className='no__video'>
+                                NO VIDEO YET!
+                            </div>
+                        )
+                    }
                 </div>
-            )
-        }
+            </div>
+        )
+
     }
 }
 
 export default Video;
 
-//className="detail__iframe--video detail__iframe"

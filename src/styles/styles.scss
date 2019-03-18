@@ -8,6 +8,8 @@
 @import './components/vtuberCard';
 @import './components/vtuberListFilter';
 @import './components/scroll';
+@import './components/button';
+
 
 @import './layout/database';
 @import './layout/detail';
@@ -16,6 +18,9 @@
 @import './layout/grid';
 @import './layout/detailNotFound';
 @import './layout/graph';
+@import './layout/form';
 
 @import './page/main';
 @import './page/notFound';
+@import './page/top';
+@import './page/loading';

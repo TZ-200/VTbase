@@ -7,6 +7,7 @@ import { startSetStartRange, startSetEndRange } from './actions/filterAction';
 import AppRouter, {history} from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import {firebase} from './firebase/firebase';
+import Loading from './components/Loading';
 
 import './styles/styles.scss';
 
@@ -27,7 +28,7 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<Loading/>, document.getElementById('app'));
 
 
 firebase.auth().onAuthStateChanged((user) => {

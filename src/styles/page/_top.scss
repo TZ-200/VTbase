@@ -1,0 +1,35 @@
+.top{
+    &__wrapper{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        background-size: cover;
+    }
+    &__container{
+        @include absCenter;
+        color: white;
+        text-align: center;
+        top: 40%;
+        font-family: Open Sans,sans-serif;
+        backface-visibility: hidden;
+
+    }
+    &__title{
+        font-size: 10rem;
+        letter-spacing: 6rem;
+        display: inline-block;
+        padding-left: 4rem;
+        animation-name: moveInLeft;             
+        animation-duration: 1s;                 
+        animation-timing-function: ease-out;    
+
+    }
+    &__subText{
+        font-size: 2rem;
+        letter-spacing: 1.4rem;
+        animation: moveInRight 1s ease-out;
+    }
+    
+}
+

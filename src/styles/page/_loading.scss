@@ -1,0 +1,10 @@
+.loading{
+    @include absCenter;
+    top: 40%;
+    text-align: center;
+    &__text{
+        font-size: 2rem;
+        font-family: arial;
+        letter-spacing: 1rem;
+    }
+}
