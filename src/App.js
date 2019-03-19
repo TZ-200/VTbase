@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { login, logout } from './actions/authAction';
 import { startSetVtubers } from './actions/vtubersAction';
-import { startSetStartRange, startSetEndRange } from './actions/filterAction';
+import {startSetFavs} from './actions/favAction';
 import AppRouter, {history} from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import {firebase} from './firebase/firebase';
@@ -36,8 +36,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if(user){ // すでにログインしている場合
     store.dispatch(login(user.uid));  // storeのuserIdを常に最新の状態にするため
     store.dispatch(startSetVtubers())
-    .then(() => store.dispatch(startSetStartRange(store.getState().vtubers[0])))
-    .then(() => store.dispatch(startSetEndRange(store.getState().vtubers[0])))
+    .then(() => store.dispatch(startSetFavs()))
     .then(() => {
       renderApp();
       if(history.location.pathname === '/'){
