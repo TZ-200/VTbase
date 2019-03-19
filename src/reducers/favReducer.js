@@ -7,7 +7,7 @@ export default (state = favReducerDefaultState, action) => {
         case 'ADD_FAV':
             return [
                 ...state,
-                action.channelId
+                action.data
             ];
         case 'REMOVE_FAV':
             return state.filter(({ id }) => id !== action.id);

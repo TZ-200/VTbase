@@ -1,18 +1,19 @@
 import database from '../firebase/firebase';
 
-export const addFav = (channelId) => ({
+export const addFav = (data) => ({
     type: 'ADD_FAV',
-    channelId
+    data
 });
 
-export const startAddFav = (channelId = {}) => {
+export const startAddFav = (data = {}) => {
     return (dispatch, getState) => {  
         const uid = getState().auth.uid;
-
-        return database.ref(`users/${uid}/favs`).push({channelId})
+        const {title, channelId} = data;
+        return database.ref(`users/${uid}/favs`).push({title, channelId})
         .then((ref) => {
             dispatch(addFav({
                 id: ref.key,
+                title,
                 channelId
             }));
         });

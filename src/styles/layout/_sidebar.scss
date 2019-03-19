@@ -1,3 +1,14 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 144, 144, 0.5);
+  border-radius: 10px;
+}
+
 .sidebar{
     
     display: none;
@@ -5,10 +16,49 @@
     padding-top: 1rem;
     position: fixed;
     height: 100%;
+    font-size: 2rem;
+
+    &--icon{
+        padding: 0 1rem;
+        font-size: 1.7rem;
+    }
 
     &__navigation{
-        display: flex;
-        flex-flow: column;
+        // display: flex;
+        // flex-flow: column;
+
+        &--text{
+            margin-left: 1rem;
+            font-size: 1.8rem;
+        }
+
+        &--label{
+            color: #d2d2d2;
+            padding-left: 2.5rem;
+            padding-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-top: 4rem;
+        }
+        &--detail{
+            overflow-y: scroll;
+            height: 60%;
+        }
+
+        &--image{
+            height: 3rem;
+            width: 3rem;
+            background-size: cover;
+            border-radius: 100%;
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+
+        &--channel-title{
+            display: inline-block;
+            font-size: 1.5rem;
+            line-height: 1;
+            width: 60%;
+        }
 
         &--item{
             padding: 1rem 0;
@@ -16,7 +66,27 @@
             margin-right: 0.5rem;
             text-decoration:none; 
             cursor:pointer;  
-            color:rgb(255, 255, 255); 
+            color:#c1c1c1;
+            display: flex;
+            align-items: center;
+
+            &:hover{
+                background-color: rgb(107, 145, 167);
+                color: rgb(255, 255, 255);
+            }
+
+            &.last--menu{
+                    position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    border-bottom: 2px solid #bfbfbf;
+                    width: 100%;
+                    left: 0;
+                    top: calc(100% + 2rem);
+                    cursor: initial;
+                }
+            }
         }
 
         &--active{
@@ -25,6 +95,8 @@
             background-color: rgb(107, 145, 167);
         }
     }
+
+
 }
 
 .isOpened{

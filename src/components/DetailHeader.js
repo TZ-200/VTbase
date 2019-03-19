@@ -16,7 +16,7 @@ export class DetailHeader extends React.Component{
   onClick = () => {
     this.setState({ faved: !this.state.faved }, () => {
       this.state.faved 
-      ? this.props.startAddFav(this.props.channelId)
+      ? this.props.startAddFav({ title: this.props.title, channelId :this.props.channelId })
       : this.props.startRemoveFav({id: this.props.favs.find(fav => fav.channelId === this.props.channelId).id})
     });
   }
@@ -82,7 +82,7 @@ export class DetailHeader extends React.Component{
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddFav: (channelId) => dispatch(startAddFav(channelId)),
+  startAddFav: (data) => dispatch(startAddFav(data)),
   startRemoveFav: (data) => dispatch(startRemoveFav(data))
 });
 const mapStateToProps = (state) => ({
