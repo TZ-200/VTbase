@@ -1,6 +1,6 @@
 .form {
     @include absCenter;
-    width: 40%;
+    width: 80%;
     height: 80%;
     border: 2px solid #e4e4e4;
     background-size: cover;
@@ -23,6 +23,10 @@
             -webkit-background-clip: text;
             background-clip: text;
             letter-spacing: 1rem;
+            @include respond(size_xs){
+                letter-spacing: 0;
+            }
+
         }
         & .btn{
             margin-top: 5rem;

@@ -9,6 +9,7 @@ import '../../node_modules/react-vis/dist/style.css';
 import Detail from './Detail';
 import rn from 'random-number';
 import Timeline from './Timeline'
+import { Link } from 'react-router-dom';
 
 const gen = rn.generator({min:0, max:5, integer: true});
 const comments = [
@@ -75,6 +76,9 @@ export class DetailPage extends React.Component{
         targetVtuberDetail ? (
 
           <div className="detail" >
+            <Link to={`/database`} style={{ textDecoration: 'none' }}>
+              <div className="detail__back">← Back</div>
+            </Link>
             <DetailHeader 
                 channelId={targetVtuber.channelId}
                 twitterId={targetVtuberDetail.twitterId}

@@ -1,9 +1,127 @@
 .header{
-    background-image: linear-gradient(to bottom, rgb(122, 202, 255), rgb(64, 179, 255));
+    background-image: linear-gradient(to bottom, #41b3ff, #009aff);
     height: 5rem;
-    // box-shadow: 0 0.5rem 1rem rgba(black, .1);
     position: fixed;
     width: 100%;
     z-index: 10000;
+    user-select: none; 
+    -moz-user-select: none;  
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    &__buttons{
+        display: inline-block;
 
+    }
+    &__logo{
+        display: inline-block;
+        font-size: 3rem;
+        color: white;
+        letter-spacing: .2rem;
+        margin: 2rem;
+        width: 100%;
+        text-align: end;
+    }
+
+
+
+
+
+
+
+    &__toggle{
+        display: none;
+        width: 5rem;
+        height: 5rem;
+
+        @include respond(size_l){
+            display: block;
+        }
+
+        &--icon{
+            position: relative;
+            margin: 1rem;
+            margin-top: 2.5rem;
+
+            &,
+            &::before,
+            &::after {
+                width: 3rem;
+                height: 2px;
+                background-color: white;
+                display: inline-block;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                transition: all .2s;
+            }
+
+            &::before { top: -.8rem; }
+            &::after { top: .8rem; }
+
+            &.isDisp::before{
+                top: 0;
+                transform: rotate(135deg);
+            }
+            &.isDisp::after{
+                top: 0;
+                transform: rotate(-135deg);
+            }
+            &.isDisp{
+                background-color: transparent;
+            }
+
+
+
+
+        }
+
+        &:hover &--icon:not(.isDisp):before {
+            top: -1rem;
+        }
+        &:hover &--icon:not(.isDisp):after {
+            top: 1rem;
+        }
+
+    }
+        
+
+
+
+
+
+    
+
+
+
+
+    
+    &__logout{
+        // margin: 1rem;
+        background-color: transparent;
+        font-size: 2rem;
+        color: white;
+        border: none;
+        padding: 0 2rem;
+        border-radius: 1rem;
+        height: 3rem;
+        margin: 1rem 2rem;
+        &:hover{
+            background-color: #c3e1ff;
+            color: #6d6d6d;
+        }
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
 }

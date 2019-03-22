@@ -25,7 +25,12 @@
   &.fa-twitter{background-color: rgb(255, 176, 244);}
   &.fa-walking{background-color: rgb(255, 221, 183);}
   &.fa-users{background-color: rgb(141, 213, 255);}
+
+  @include respond(size_xs){
+    margin-right: 2.5rem;
+  }
 }
+
 
 .red{
   color: #ff3f3f;
@@ -40,9 +45,14 @@
     height: 90%;
     max-width: 100rem;
 
-    animation-name: fadeSlideIn;
-    animation-duration: .3s;
-    transition: .1s;
+    // animation-name: fadeSlideIn;
+    // animation-duration: .3s;
+    // transition: .1s;
+
+  @include respond(size_xs){
+    width: 100%;
+    // margin: 2rem;
+  }
 
   &__wrapper{
     animation-name: fadeSlideIn;
@@ -57,10 +67,28 @@
         margin: 2rem 0;
         position: relative;
 
+        @include respond(size_m){
+          // display: block;
+        }
+        @include respond(size_xs){
+          text-align: center;
+          display: inline-block;
+        }
+
         &--top{
           display: flex;
           margin: 1rem 0;
           justify-content: space-between;
+          @include respond(size_m){
+            display: block;
+            width: 30rem;
+          }
+          @include respond(size_xs){
+            margin: 2rem auto;
+            // margin-left: 2rem;
+          }
+
+
         }
 
         &--image{
@@ -70,6 +98,11 @@
             background-size: cover;
             border-radius: 20px;
             transition: .3s;
+            @include respond(size_xs){
+              height: 30rem;
+              width: 30rem;
+              margin: auto;
+            }
 
             &:hover{
               transform: scale(1.05);
@@ -95,6 +128,12 @@
           left: 22rem;
           top: -4rem;
 
+          @include respond(size_xs){
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%
+          }
+
           &:before {
             content: "";
             position: absolute;
@@ -105,6 +144,13 @@
             border-right: 2rem solid #3c3c3c;
             z-index: 0;
             transform: rotate(-25deg);
+
+            @include respond(size_xs){
+              top: 111%;
+              left: 50%;
+              transform: rotate(-90deg);
+            }
+
           }
         }
 
@@ -112,6 +158,14 @@
             width: calc(100% - 25rem);
             margin-left: 5rem;
             // background-color: blue;
+            @include respond(size_m){
+              margin-left: 3rem;
+            }
+            @include respond(size_xs){
+              display: inline-block;
+              width: 100%;
+              margin-left: 0;
+            }
         }
 
 
@@ -120,17 +174,29 @@
             font-size: 3rem;
             display: flex;
             align-items: center;
+            @include respond(size_xs){
+              display: block;
+              text-align: center;
+            }
         }
 
         &--icons{
             height: $xl-size;
             display: flex;
             align-items: center;
+            @include respond(size_xs){
+              justify-content: center;
+            }
+            
         }
 
         &--description{
             height: 13rem;
             overflow-y: scroll;
+            @include respond(size_xs){
+              width: 30rem;
+              display: inline-block;
+            }
         }
     }
 
@@ -162,6 +228,9 @@
       padding: .5rem 0 .5rem 3rem;
       font-weight: 700;
       text-align: left;
+      @include respond(size_m){
+        font-size: 2.5rem;
+      }
 
       &--top{
         display: flex;
@@ -225,6 +294,15 @@
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: .15s;
 
+        @include respond(size_m){
+          width: 22rem;
+          margin: 1rem;
+        }
+        @include respond(size_xs){
+          width: 29rem;
+        }
+        
+
         &:hover{
           transform: translateY(-1.02rem) scale(1.02);
           transition: .15s;
@@ -261,6 +339,9 @@
       position: relative;
       display: inline-block;
       width: calc(100% - 4rem);
+      @include respond(size_xs){
+        padding-right: 2rem;
+      }
 
       &--container{
           background-color: rgb(255, 255, 255);
@@ -268,11 +349,24 @@
           padding: 2rem;
           box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-
+          @include respond(size_xs){
+            margin: auto;
+            width: 25rem;
+          }
 
       }
     }
-
+    &__back{
+      color: grey;
+      display: inline-block;
+      padding: 0 1rem;
+      @include respond(size_xs){
+        padding-left: 2rem;
+      }
+      &:hover{
+        color: black;
+      }
+    }
 }
 
 .hint{
@@ -384,6 +478,15 @@
     margin: 2rem;
     padding: 2rem;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    @include respond(size_m){
+      height: 42rem;
+      width: 42rem;
+    }
+    @include respond(size_xs){
+      height: 25rem;
+      width: 25rem;
+      margin: 1rem;
+    }
   }
 }
 
@@ -416,6 +519,16 @@
     margin: 2rem;
     padding: 2rem;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    @include respond(size_m){
+      width: 42rem;
+      height: 42rem;
+    }
+    @include respond(size_xs){
+      height: 25rem;
+      width: 25rem;
+      margin: 1rem;
+    }
   }
 
   &__container {
@@ -440,14 +553,18 @@
 
 
 
-  .icon {
-      height: 4rem;
-      width: 4rem;
-      margin: 0 1rem;
-      cursor: pointer;
-      background-size: cover;
-  
-  }
+.icon {
+    height: 4rem;
+    width: 4rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    background-size: cover;
+    @include respond(size_m){
+      height: 3rem;
+      width: 3rem;
+    }
+
+}
   
   .heart {
       margin: 0 1rem;

@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import 'react-calendar-heatmap/dist/styles.css';
+import ReactResizeDetector from 'react-resize-detector';
 
 export default class VideoHeatmap extends Component {
   
+    state = {
+        width: 400,
+      }
+
     getClass = (value) => {
         if(!value){
             return 'color-empty';    
@@ -31,10 +36,18 @@ export default class VideoHeatmap extends Component {
             }
         })
         const endDate = new Date('2019-03-09');
-        const startDate = new Date('2018-09-15');
+        const startDate = this.state.width <= 650 
+        ? new Date('2018-12-15') : new Date('2018-09-15')
+
       return (
           
         <div className="detail__heatmap--container">
+            <ReactResizeDetector 
+                handleWidth 
+                onResize={(width) => {
+                    this.setState({width})
+                }}
+            />
             <div className="container__label">
                 Video Views
             </div>

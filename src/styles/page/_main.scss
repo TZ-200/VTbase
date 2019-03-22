@@ -7,14 +7,20 @@
 .contents__container{
     position: absolute;
     margin: 0 auto;
+
     height: 90%;
-    left: 0;
-    width: 100%;
 
-}
-
-.isShrunk{
-    left: $sidebar-width;
+    left: 20rem;
     width: calc(100% - 20rem);
-    
+
+    @include respond(size_l){
+        left: 0;
+        width: 100%;
+    }
+
 }
+
+// .isShrunk{
+//     left: $sidebar-width;
+//     width: calc(100% - 20rem);
+// }

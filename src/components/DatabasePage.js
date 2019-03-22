@@ -15,7 +15,6 @@ export class DatabasePage extends React.Component{
     activePage: 1,
   };
 
-
   onSortChange = (e) => {
     const sortBy = e.target.value;
     if(sortBy === 'subs'){

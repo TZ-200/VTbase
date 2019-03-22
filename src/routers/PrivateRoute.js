@@ -8,27 +8,33 @@ import Sidebar from '../components/Sidebar';
 // ...restにはisAuthenticatedとcomponent以外のpropsが含まれる
 export class PrivateRoute extends React.Component {
     state = {
-        sidebar_isOpened: true
+        navDisp: false
     }
     toggleSidebar = () => {
-        this.setState({sidebar_isOpened: !this.state.sidebar_isOpened})
+        this.setState({navDisp: !this.state.navDisp})
     } 
+    closeSidebar = () => {
+        this.setState({navDisp:false})
+    }
 
     render(){
+        
         const {isAuthenticated, component: Component, ...rest} = this.props;
 
-        const className = this.state.sidebar_isOpened
-        ? "contents__container isShrunk"
-        : "contents__container";
 
         return (
             <Route {...rest} component={(props) => (
                 isAuthenticated ? (
                     <div>
-                        <Header toggleSidebar={this.toggleSidebar}    />
+                        <Header 
+                            toggleSidebar={this.toggleSidebar}
+                        />
+                        <Sidebar 
+                            navDisp={this.state.navDisp}
+                            closeSidebar={this.closeSidebar}
+                        />
                         <div className="contents__wrapper">
-                            <Sidebar sidebar_isOpened={this.state.sidebar_isOpened} />
-                            <main className={className}>
+                            <main className="contents__container">
                                 <Component {...props} />
                             </main>
                         </div>

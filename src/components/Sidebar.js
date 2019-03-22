@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { startLogout } from '../actions/authAction';
 
 
 export class Sidebar extends React.Component{
@@ -8,12 +9,31 @@ export class Sidebar extends React.Component{
         document.querySelector('.sidebar__navigation--detail').scrollTop
     }
     render(){
-        const className = this.props.sidebar_isOpened
-        ? "sidebar isOpened"
-        : "sidebar";
+        const { navDisp, startLogout } = this.props;
+        let style; 
+        if(navDisp){
+            style = {
+                display: 'block'
+            }
+        }
+        // top: '5rem',
+        // paddingTop: '1rem',
+        // height: '100%',
         return (
-            <div className={className} >
-                
+            <div 
+                className="sidebar"
+                style={style}    
+            >
+            
+                {
+                    this.props.navDisp && (
+                        <div 
+                            className="navigation__background" 
+                            onClick={this.props.closeSidebar}
+                        />
+                    )
+                }
+
                 <div className="sidebar__navigation">
                     <NavLink className="sidebar__navigation--item" to="/about" activeClassName="sidebar__navigation--active">
                         <i className="fas fa-globe-americas sidebar--icon"/>    
@@ -30,18 +50,25 @@ export class Sidebar extends React.Component{
                         <i className="fas fa-database sidebar--icon"/>    
                         <span className="sidebar__navigation--text">Database</span> 
                     </NavLink>
-                    <NavLink className="sidebar__navigation--item last--menu" to="/form" activeClassName="sidebar__navigation--active">
+                    <NavLink className="sidebar__navigation--item" to="/form" activeClassName="sidebar__navigation--active">
                         <i className="fas fa-paste sidebar--icon"/>    
                         <span className="sidebar__navigation--text">Request Form</span>
                     </NavLink> 
+                    <div className="sidebar__navigation--item" onClick={startLogout}>
+                        <i className="fas fa-sign-out-alt sidebar--icon"></i>
+                        <span className="sidebar__navigation--text">Logout</span>
+                    </div>
                 </div>
 
-                <div className='sidebar__navigation--label'>お気に入りチャンネル</div>
-                
+                {
+                    this.props.favs.length > 0 && (
+                        <div className='sidebar__navigation--label'>お気に入りチャンネル</div>
+                    )
+                }
                 <div 
                     className="sidebar__navigation sidebar__navigation--detail"
                     onChange={e => e.preventDefault()}
-                >    
+                >   
                     {
                         this.props.favs.map(fav => {
                             return (
@@ -77,8 +104,12 @@ export class Sidebar extends React.Component{
 
  */
 
+const mapDispatchToProps = (dispatch) => ({
+    startLogout: () => dispatch(startLogout())
+});
+
 const mapStateToProps = (state, props) => ({
     favs: state.favs
 });
   
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

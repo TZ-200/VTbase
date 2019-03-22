@@ -6,8 +6,18 @@
     box-sizing: inherit;
 }
 
+// * {
+//     background: #000 !important;
+//     color: #0f0 !important;
+//     outline: solid rgb(255, 255, 255) 1px !important;
+//   }
+
+
 html {
   font-size: 62.5%;
+  @include respond(size_l){     // width < 1000px
+      font-size: 50%;   // 1rem = 8px
+  }
 }
 
 body {

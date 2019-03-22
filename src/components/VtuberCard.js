@@ -23,7 +23,7 @@ const getBudges = (num) => {
   } else if (91 <= num && num <= 95) {
     return ['hot']
   } else {
-    return ['new', 'hot']
+    return ['hot', 'new']
   }
 }
 
@@ -44,7 +44,6 @@ const VtuberCard = (props) => {
                 className={`vtuberCard__budge ${budge}`}
                 style={{
                   backgroundImage: `url(../temp/${budge}.svg)`,
-                  left: `${left}rem`
                 }}
               />
             )

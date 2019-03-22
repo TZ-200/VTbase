@@ -18,3 +18,18 @@
     -webkit-background-clip: text;//テキストでくり抜く
     -webkit-text-fill-color: transparent;//くり抜いた部分は背景を表示
 }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == size_xs {
+        @media only screen and (max-width: 32.5em) { @content }; // 520px
+    }
+    @if $breakpoint == size_s {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == size_m {
+        @media only screen and (max-width: 45em) { @content }; // 720px
+    }
+    @if $breakpoint == size_l {
+        @media only screen and (max-width: 62.5em) { @content };  // 1000px
+    }
+}
