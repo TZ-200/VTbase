@@ -1,6 +1,5 @@
 node_modules/
 .env.test
 .env.development
-public/
 public/dist/bundle.js.map
 public/dist/styles.css.map
