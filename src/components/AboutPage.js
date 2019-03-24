@@ -13,6 +13,7 @@ const AboutPage = () => (
     <h4>HTML / CSS / Sass / JavaScript / React / Redux / Router / Nodejs / Firebase / Webpack</h4>
     <br/>
 
+    <h5>※ クロスブラウザは網羅しきれていないところがあります（基本Chromeです）。</h5>
     <h5>※ 機械学習でVtuberをクラスタリングして2次元マッピングしたけど特に面白くなさそうなので断念したプロトタイプはこちら ⇒ <a href="https://vtbase.herokuapp.com">Demo</a></h5>
 
   </div>
