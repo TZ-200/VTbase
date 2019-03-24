@@ -1,8 +1,6 @@
 const favReducerDefaultState = [];
 
-
 export default (state = favReducerDefaultState, action) => {
-    
     switch (action.type){
         case 'ADD_FAV':
             return [

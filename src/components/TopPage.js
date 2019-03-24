@@ -1,8 +1,11 @@
 import React from 'react';
-import { startLogout } from '../actions/authAction';
 import { startLogin } from '../actions/authAction';
 import { connect } from 'react-redux';
 
+/**
+ * Topページ
+ * ログイン処理を担当
+ */
 
 const TopPage = (props) => (
   <div>
@@ -22,17 +25,11 @@ const TopPage = (props) => (
               Login
           </button>
       </div>
-
   </div>
 );
 
-const mapStatetoProps = (state) => ({
-  isAuthenticated: !!state.auth.uid 
-});
-
 const mapDispatchToProps = (dispatch) => ({
-  startLogin: () => dispatch(startLogin()),
-  startLogout: () => dispatch(startLogout())
+  startLogin: () => dispatch(startLogin())
 });
 
-export default connect(mapStatetoProps, mapDispatchToProps)(TopPage);
+export default connect(undefined, mapDispatchToProps)(TopPage);

@@ -4,8 +4,20 @@ import ReactTooltip from 'react-tooltip';
 import 'react-calendar-heatmap/dist/styles.css';
 import ReactResizeDetector from 'react-resize-detector';
 
+/**
+ * vtuber詳細ページのHeatmap
+ */
+
 export default class VideoHeatmap extends Component {
   
+    componentDidUpdate(){
+        document.querySelectorAll('.react-calendar-heatmap rect')
+        .forEach(rect => {rect.setAttribute('rx','2'); rect.setAttribute('ry','2');});
+        document.querySelectorAll('.react-calendar-heatmap text')
+        .forEach(text => text.setAttribute('style',"font-size:0.8rem; font-family:Trebuchet"));
+        ReactTooltip.rebuild();
+    }
+
     state = {
         width: 400,
       }

@@ -35,7 +35,6 @@ export const  startRemoveFav = ({ id }) => {
   }
 
 
-
 export const setFavs = (favs) => ({
     type: 'SET_FAVS',
     favs

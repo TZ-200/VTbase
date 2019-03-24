@@ -82,7 +82,7 @@
     // inputに入力したらplaceholderはshownではなくなるので以下のCSSが外れる
     &__input:placeholder-shown + &__label{  // sibiling selector
         opacity: 0;
-        visibility: hidden;     // visibilityはアニメーションにできないのでopacityが必要
+        visibility: hidden;     
         transform: translateY(-4rem);
     }
 

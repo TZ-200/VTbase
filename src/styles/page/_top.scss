@@ -1,4 +1,5 @@
 .top{
+
     &__wrapper{
         height: 100%;
         width: 100%;
@@ -6,6 +7,7 @@
         z-index: -1;
         background-size: cover;
     }
+
     &__container{
         @include absCenter;
         color: white;
@@ -15,6 +17,7 @@
         backface-visibility: hidden;
 
     }
+
     &__title{
         font-size: 10rem;
         letter-spacing: 6rem;
@@ -23,13 +26,16 @@
         animation-name: moveInLeft;             
         animation-duration: 1s;                 
         animation-timing-function: ease-out;    
+
         @include respond(size_l){
             letter-spacing: 5rem;
             padding-left: 3rem;
         }
+
         @include respond(size_m){
             letter-spacing: 2.5rem;
         }
+
         @include respond(size_xs){
             letter-spacing: 1.5rem;
             padding-left: 2rem;
@@ -40,12 +46,12 @@
         font-size: 2rem;
         letter-spacing: 1.4rem;
         animation: moveInRight 1s ease-out;
+        
         @include respond(size_xs){
             font-size: 1.5rem;
             letter-spacing: 0.5rem;
             padding-left: 1rem;
         }
     }
-    
 }
 

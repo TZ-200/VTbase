@@ -1,0 +1,20 @@
+.react-calendar-heatmap{
+    margin-bottom: -4rem;
+  }
+.__react_component_tooltip{
+    text-align: left;
+}
+.color{
+    &-4 {
+      fill: $color-heatmap-1;
+    }
+    &-3 {
+      fill: $color-heatmap-2;
+    }
+    &-2 {
+      fill: $color-heatmap-3;
+    }
+    &-1 {
+      fill: $color-heatmap-4;
+    }    
+}

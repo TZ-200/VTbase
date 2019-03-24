@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 
+/**
+ * vtuber詳細ページの埋め込みYoutube動画
+ * Heatmapのブロッククリックに対応して中身を変える
+ */
+
 export class Video extends Component{
 
     render(){

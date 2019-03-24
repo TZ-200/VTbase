@@ -1,5 +1,6 @@
 import React from 'react';
 import rn from 'random-number';
+import moment from 'moment';
 import { 
     FlexibleXYPlot,
     XAxis,
@@ -8,7 +9,11 @@ import {
     VerticalBarSeries,
     Hint
 } from 'react-vis';
-import moment from 'moment';
+
+/**
+ * vtuber詳細ページのGained & Lost Followeres
+ * 値はランダムに生成
+ */
 
 const timestamp = new Date('February 22 2019').getTime();
 const ONE_DAY = 86400000;

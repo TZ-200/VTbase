@@ -1,6 +1,5 @@
 const vtubersReducerDefaultState = [];
 
-
 export default (state = vtubersReducerDefaultState, action) => {
     switch (action.type) {
       case 'SET_VTUBERS':
@@ -11,4 +10,4 @@ export default (state = vtubersReducerDefaultState, action) => {
       default:
         return state;
     }
-  };
+};

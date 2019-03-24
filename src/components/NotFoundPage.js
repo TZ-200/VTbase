@@ -1,7 +1,9 @@
 import React from 'react';
-import AppRouter, {history} from '../routers/AppRouter';
+import {history} from '../routers/AppRouter';
 
-
+/**
+ * アプリのNotFoundPage
+ */
 
 export class NotFoundPage extends React.Component{
 
@@ -12,33 +14,28 @@ export class NotFoundPage extends React.Component{
   render(){
     return (
       <div className="notFound">
-
-
-      <div className="notFound--container" >
+        <div className="notFound--container" >
           <div 
-              className="notFound__clip"
-              style={{
-                backgroundImage: 'url("./temp/404.jpg")'
-              }}  
+            className="notFound__clip"
+            style={{
+              backgroundImage: 'url("./temp/404.jpg")'
+            }}  
           >
             Oops!
           </div>
           <div className="notFound__text">
-              404 - PAGE NOT FOUND
+            404 - PAGE NOT FOUND
           </div>
           <button 
-              className="notFound__button" 
-              onClick={this.onClick}
+            className="notFound__button" 
+            onClick={this.onClick}
           > 
-              Back
+            Back
           </button>
+        </div>
       </div>
-
-  
-  </div>
     )
   }
 }
-
 
 export default NotFoundPage;

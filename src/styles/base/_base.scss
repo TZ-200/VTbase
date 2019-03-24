@@ -6,13 +6,6 @@
     box-sizing: inherit;
 }
 
-// * {
-//     background: #000 !important;
-//     color: #0f0 !important;
-//     outline: solid rgb(255, 255, 255) 1px !important;
-//   }
-
-
 html {
   font-size: 62.5%;
   @include respond(size_l){     // width < 1000px
@@ -27,14 +20,9 @@ body {
   
 }
 
-button {
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: default;
-}
-
-.is-active {
-  font-weight: bold;
-}
+// ワイヤー表示して確認したい時は以下をUNCOMMENT
+// * {
+//     background: #000 !important;
+//     color: #0f0 !important;
+//     outline: solid rgb(255, 255, 255) 1px !important;
+//   }

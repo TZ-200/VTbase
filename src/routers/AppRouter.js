@@ -1,22 +1,16 @@
 import React from 'react';
-import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-
 import AboutPage from '../components/AboutPage';
 import DatabasePage from '../components/DatabasePage';
 import DetailPage from '../components/DetailPage';
 import RequestFormPage from '../components/RequestFormPage';
 import NotFoundPage from '../components/NotFoundPage';
 import TopPage from '../components/TopPage';
-
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 
-export const history = createHistory();
-
-
-// Top => PublicRouter
 const AppRouter = () => (
   <Router history={history}>
       <Switch>
@@ -31,3 +25,4 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
+export const history = createHistory();

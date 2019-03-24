@@ -1,0 +1,83 @@
+.hint{
+
+    &__area{
+      color: white;
+      padding: 2rem;
+      background-color: black;
+      border-radius: 10px;
+      opacity: 0.8;
+      font-family: Trebuchet;
+      width: 20rem;
+      transform: translateY(-150%);
+    }
+  
+    &__gainLoss{
+      color: white;
+      padding: 2rem;
+      background-color: black;
+      border-radius: 10px;
+      opacity: 0.8;
+      font-family: Trebuchet;
+      width: 10rem;
+      text-align: left;
+  
+  
+      &--date{
+        display: block;
+        text-align: center;
+        padding-bottom: .5rem;
+      }
+  
+      &--plus{
+        display: flex;
+        justify-content: space-between;
+        &--label,
+        &--data{
+          display: inline-block;
+          width: 40%;
+        }
+        &--data{
+          color: rgb(196, 195, 255);
+        }
+      }
+  
+      &--minus{
+        display: flex;
+        justify-content: space-between;
+        &--label,
+        &--data{
+          display: inline-block;
+          width: 40%;
+        }
+        &--data{
+          color: rgb(255, 193, 193);
+        }
+      }
+  
+  
+    }
+  
+    &__status{
+      color: white;
+      padding: 2rem;
+      background-color: black;
+      border-radius: 10px;
+      opacity: 0.8;
+      font-family: Trebuchet;
+      width: 10rem;
+      text-align: left;
+    
+      &--rank{
+        display: block;
+        font-family: arial;
+        font-size: 2.5rem;
+        padding-left: 1.5rem;
+      }
+  
+      &--among{
+        font-size: 1.4rem;
+        color: grey;
+        padding-left: 1.5rem;
+      }
+    }
+  }

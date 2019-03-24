@@ -1,8 +1,10 @@
 import React from 'react';
 
+/**
+ * vtuberの登録フォーム
+ */
 
 const FormPage = () => (
-
   <form 
     action="" 
     className="form"
@@ -27,7 +29,6 @@ const FormPage = () => (
           <div className="btn">Next step &rarr;</div>
       </div>
   </form>
-
 );
 
 export default FormPage;

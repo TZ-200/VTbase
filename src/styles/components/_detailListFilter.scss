@@ -3,14 +3,17 @@
         margin: 0 auto;
         margin-top: 3rem;
         width: 60rem;
+
         @include respond(size_l){
             margin-top: 1rem;
         }
+        
         @include respond(size_m){
             width: 100%;
             text-align: center;
         }
     }
+
     &__container * {
         display: inline-block;
         margin: 0 1rem;
@@ -18,13 +21,23 @@
     }
     
     &__container select{
+        
         @include respond(size_m){
             display: inline-block;
             width: 20%;
         }
+        
         @include respond(size_xs){
             padding: 0;
         }
+    }
+
+    &__sortBy{
+        width: 11rem;
+    }
+
+    &__order{
+        width: 7rem;
     }
 }
 
@@ -101,7 +114,6 @@ select{
         }
     }
 }
-
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(179, 179, 179);

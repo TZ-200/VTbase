@@ -3,11 +3,6 @@
     background-color: #eee;
     margin: 0 auto;
     margin-top: 5rem;
-
-    &:not(:last-child){  // 最後の子要素を除いて
-        // margin-bottom: $gutter-vertical;
-    }
-
     @include clearfix;
 
     [class^="col-"]{

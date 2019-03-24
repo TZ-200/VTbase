@@ -1,6 +1,10 @@
 import React from 'react';
 import Pagination from "react-js-pagination";
 
+/**
+ * ユーザーからの検索条件入力に対応
+ */
+
 export class VtuberListFilter extends React.Component {
 
   // buttonクリックから検索をしたい場合はstateを持たせる
@@ -24,6 +28,7 @@ export class VtuberListFilter extends React.Component {
               onChange={this.props.onSortChange} 
               style={{display:'inline-block'}}
               defaultValue={this.props.sortBy}  
+              className="vtuberListFilter__sortBy"
             >
                 <option value="subs">Subs</option>
                 <option value="videoCount">VideoCount</option>
@@ -35,7 +40,8 @@ export class VtuberListFilter extends React.Component {
             <select 
                 onChange={this.props.onOrderChange} 
                 style={{display:'inline-block'}}
-                defaultValue={this.props.order}  
+                defaultValue={this.props.order}
+                className="vtuberListFilter__order"  
               >
                 <option value="descend">降順</option>
                 <option value="ascend">昇順</option>

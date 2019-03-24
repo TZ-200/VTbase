@@ -28,12 +28,6 @@
         text-align: end;
     }
 
-
-
-
-
-
-
     &__toggle{
         display: none;
         width: 5rem;
@@ -80,17 +74,36 @@
                 background-color: transparent;
             }
 
-
+            &.checked {
+                background-color: transparent;
+            }
+            &.checked::before {
+                top: 0;
+                transform: rotate(135deg);
+            }
+            &.checked::after {
+                top: 0;
+                transform: rotate(-135deg);
+            }
 
 
         }
 
-        &:hover &--icon:not(.isDisp):before {
-            top: -1rem;
-        }
-        &:hover &--icon:not(.isDisp):after {
-            top: 1rem;
-        }
+        &:hover{
+            &--icon:not(.isDisp):before {
+                top: -1rem;
+            }
+            &--icon.checked:before {
+                top: 0;
+            }
+            &--icon:not(.isDisp):after {
+                top: 1rem;
+            }
+            &--icon.checked:after {
+                top: 0;
+            }
+        } 
+
 
     }
         

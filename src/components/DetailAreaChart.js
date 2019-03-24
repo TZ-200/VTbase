@@ -12,6 +12,11 @@ import {
     Hint
 } from 'react-vis';
 
+/**
+ * vtuber詳細ページのChannel Growth chart
+ * 値はランダムに生成
+ */
+
 const timestamp = new Date('February 22 2019').getTime();
 const ONE_DAY = 86400000;
 let gen = rn.generator({min:800, max:1200, integer: true});
@@ -25,6 +30,7 @@ export default class AreaChart extends React.Component {
         DATA: []
     };
 
+    // 2/22 - 3/3 の間でランダムな値を生成
     componentDidMount(){
         const DATA = [];
         for(let i = 0; i <= 9; i++){

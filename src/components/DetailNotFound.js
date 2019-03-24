@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * 存在しないChannelIdをURLに入力された際に表示する
+ */
+
 export default () => (
 
     <div className="detailNotFound">

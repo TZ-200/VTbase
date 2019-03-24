@@ -45,14 +45,17 @@
         background-size: cover;
         border-radius: 100%;
         left: 7rem;
+        
         &:first-child{
             left: 1rem;
         }
+        
         @include respond(size_l){
             left: 6rem;
             height: 4rem;
             width: 4rem;
         }
+        
         @include respond(size_xs){
             display: none;
         }
@@ -65,11 +68,13 @@
         width: 22rem;
         margin: 2rem;
         margin-bottom: 1.2rem;
+
         @include respond(size_l){
             width: 16rem;
             height: 16rem;
             margin: 1rem;
         }
+
         @include respond(size_xs){
             width: 10rem;
             height: 10rem;
@@ -91,11 +96,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         @include respond(size_l){
             top: 18rem;
             font-size: 1.4rem;
             width: 14rem;
         }
+
         @include respond(size_xs){
             top: 3.5rem;
             left: 20rem;
@@ -114,6 +121,7 @@
         &--container{
             display: flex;
             justify-content: space-evenly;
+
             @include respond(size_xs){
                 position: absolute;
                 top: 6rem;
@@ -132,10 +140,7 @@
             font-size: 1.6rem;
             color: rgb(155, 155, 155);
         }
-    
     }
-
-
 
     &__subs,
     &__videoCount{
@@ -147,8 +152,6 @@
 
         & span{
             color: black;
-
-
         }
     }
 }

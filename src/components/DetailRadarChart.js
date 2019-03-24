@@ -1,13 +1,16 @@
 import React from 'react';
+import calcOrder from '../utils/calcOrder';
+import ReactResizeDetector from 'react-resize-detector';
+import numeral from 'numeral';
 import {
   RadarChart,
   CircularGridLines,
   Hint
 } from 'react-vis';
-import calcOrder from '../utils/calcOrder';
-import ReactResizeDetector from 'react-resize-detector';
-import numeral from 'numeral';
 
+/**
+ * vtuber詳細ページのStatus Radar Chart
+ */
 
 export class  VtuberDetailRadar extends React.Component {
 

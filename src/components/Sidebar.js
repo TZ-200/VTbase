@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { startLogout } from '../actions/authAction';
 
+/**
+ * アプリのSidebar
+ */
 
 export class Sidebar extends React.Component{
     componentDidMount(){
@@ -10,21 +13,14 @@ export class Sidebar extends React.Component{
     }
     render(){
         const { navDisp, startLogout } = this.props;
-        let style; 
-        if(navDisp){
-            style = {
-                display: 'block'
-            }
-        }
-        // top: '5rem',
-        // paddingTop: '1rem',
-        // height: '100%',
+        const style = navDisp 
+        ? {display: 'block'} : undefined;
+
         return (
             <div 
                 className="sidebar"
                 style={style}    
             >
-            
                 {
                     this.props.navDisp && (
                         <div 
@@ -98,17 +94,11 @@ export class Sidebar extends React.Component{
     }
 }
 
-/**
- *         <NavLink to="/forum" activeClassName="is-active">Forum </NavLink>
-        <NavLink to="/mypage" activeClassName="is-active">Mypage </NavLink>
-
- */
-
 const mapDispatchToProps = (dispatch) => ({
     startLogout: () => dispatch(startLogout())
 });
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
     favs: state.favs
 });
   

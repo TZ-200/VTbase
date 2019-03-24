@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * アプリのLoading画面
+ */
 
 export default () => (
     <div className='loading'>

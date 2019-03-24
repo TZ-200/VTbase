@@ -4,30 +4,33 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 
-// propsにはAppRouterからのpathとcomponentも含まれている
-// ...restにはisAuthenticatedとcomponent以外のpropsが含まれる
+/**
+ * ログイン状態でのみアクセス可能なページを表示
+ */
+
 export class PrivateRoute extends React.Component {
+
+    // sidebarの表示を司る（ちょっと変数名おかしいけど）
     state = {
         navDisp: false
     }
-    toggleSidebar = () => {
-        this.setState({navDisp: !this.state.navDisp})
-    } 
-    closeSidebar = () => {
-        this.setState({navDisp:false})
-    }
 
-    render(){
-        
+    // Sidebarの開閉を制御
+    toggleSidebar = () => { this.setState({navDisp: !this.state.navDisp}) } 
+    closeSidebar = () => { this.setState({navDisp:false}) }
+
+    render(){        
+
         const {isAuthenticated, component: Component, ...rest} = this.props;
 
-
+        // ログインしてしなかったらTopページにリダイレクト
         return (
             <Route {...rest} component={(props) => (
                 isAuthenticated ? (
                     <div>
                         <Header 
                             toggleSidebar={this.toggleSidebar}
+                            navDisp={this.state.navDisp}
                         />
                         <Sidebar 
                             navDisp={this.state.navDisp}
@@ -35,7 +38,7 @@ export class PrivateRoute extends React.Component {
                         />
                         <div className="contents__wrapper">
                             <main className="contents__container">
-                                <Component {...props} />
+                                <Component {...props} navDisp={this.state.navDisp}/>
                             </main>
                         </div>
                     </div>

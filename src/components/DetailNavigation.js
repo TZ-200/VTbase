@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Vtuber詳細ページでデータ画面とTimeline画面の切り替えを司る
+ */
+
 export default (props) => (
     <div className="detail__navigation">
         <div 

@@ -5,11 +5,14 @@
 @import './base/settings';
 @import './base/base';
 
-@import './components/vtuberCard';
-@import './components/vtuberListFilter';
+@import './components/detailCard';
+@import './components/detailListFilter';
 @import './components/scroll';
 @import './components/button';
-
+@import './components/heatmap';
+@import './components/detailParam';
+@import './components/hint';
+@import './components/detailHeader';
 
 @import './layout/database';
 @import './layout/detail';
@@ -19,6 +22,7 @@
 @import './layout/detailNotFound';
 @import './layout/graph';
 @import './layout/form';
+@import './layout/timeline';
 
 @import './page/main';
 @import './page/notFound';

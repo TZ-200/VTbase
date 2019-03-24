@@ -1,10 +1,14 @@
 import React from 'react';
-import VtuberDetailRadar from './VtuberDetailRadar';
-import VideoHeatmap from './VideoHeatmap';
-import EmbedVideo from './EmbedVideo';
+import DetailRadarChart from './DetailRadarChart';
+import DetailVideoHeatmap from './DetailVideoHeatmap';
+import DetailEmbedVideo from './DetailEmbedVideo';
 import DetailParams from './DetailParams';
-import GainLossChart from './GainLossChart';
-import AreaChart from './AreaChart';
+import DetailGainLossChart from './DetailGainLossChart';
+import DetailAreaChart from './DetailAreaChart';
+
+/**
+ * Vtuberの詳細ページのデータ画面
+ */
 
 export default (props) => (
     <div className="detail__wrapper">
@@ -13,19 +17,19 @@ export default (props) => (
             icon={['fas fa-rss', 'fas fa-video', 'fas fa-birthday-cake','fab fa-twitter', 'fas fa-walking', 'fas fa-users']}
         />
         <div className="detail__large-container">
-            <AreaChart />
-            <VtuberDetailRadar 
+            <DetailAreaChart />
+            <DetailRadarChart 
                 vtubers={props.vtubers} 
                 targetVtuber={props.targetVtuber}
             />
-            <GainLossChart />
-            <EmbedVideo 
+            <DetailGainLossChart />
+            <DetailEmbedVideo 
                 videoId={props.videoId}
                 iframe={true}
             />
             {
                 props.videoId && (
-                    <VideoHeatmap 
+                    <DetailVideoHeatmap 
                         targetVtuberDetail={props.targetVtuberDetail} 
                         onClick={props.onClick}
                     />

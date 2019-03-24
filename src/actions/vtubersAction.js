@@ -1,22 +1,18 @@
-import { storage } from '../firebase/firebase';
-import axios from 'axios'
 
-// SET_VTUBERS
+
 export const setVtubers = (vtubers) => ({
-    type: 'SET_VTUBERS',
-    vtubers
+  type: 'SET_VTUBERS',
+  vtubers
 });
 
-// // SET_VTUBERS Firebase
-// // deploy時は UNCOMMENT してください
+// LoadingにFirebaseを使用する際は以下を UNCOMMENT
+// import { storage } from '../firebase/firebase';
+// import axios from 'axios'
 // export const startSetVtubers = () => {
 //     return (dispatch) => {
-
 //       const fileRef = storage.ref('vtubers/vtubersBasicMinified.json')
-
 //       return fileRef.getDownloadURL()
 //             .then(url => {
-                
 //                 return axios.get(`https://cors-anywhere.herokuapp.com/${url}`)
 //             })
 //             .then(response => {
@@ -25,13 +21,12 @@ export const setVtubers = (vtubers) => ({
 //     }
 // }
 
-// 開発時だけ！！！！
-// Deploy時は消す！！！
+// Firebaseを使用しない場合は以下を使用
 export const startSetVtubers = () => {
-    return (dispatch) => {
-      return new Promise(function(resolve, reject) {
-        const vtubers = require('../temp/vtubersBasicMinified.json');
-        resolve(dispatch(setVtubers(vtubers)));
-      })
-    }
+  return (dispatch) => {
+    return new Promise(function(resolve, reject) {
+      const vtubers = require('../temp/vtubersBasicMinified.json');
+      resolve(dispatch(setVtubers(vtubers)));
+    })
+  }
 }
