@@ -3,4 +3,3 @@ node_modules/
 .env.development
 public/dist/bundle.js.map
 public/dist/styles.css.map
-src/
